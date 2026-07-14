@@ -1,0 +1,666 @@
+[
+{
+  "id": "s16-ps-downwind",
+  "title": "Port and starboard converge on the run",
+  "zone_tag": "run", "difficulty": 1, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 48, "y": 70, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 58, "y": 72, "heading": 190, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["you", "A"]]},
+  "q1": {"prompt": "Deep on the run, you're on port. A converges on starboard gybe. No mark nearby. What do you do?",
+    "options": [
+      {"id": "duck", "label": "Alter early — pass astern of her"},
+      {"id": "hold", "label": "Hold — downwind it's whoever's inside"},
+      {"id": "hail", "label": "Hail for room to pass ahead"},
+      {"id": "wait", "label": "Wait for her to gybe away"}
+    ],
+    "correct": "duck"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["10"],
+    "explanation": "Rule 10 doesn't switch off downwind: port keeps clear of starboard on every point of sail. 'Inside' means nothing out here — that's a mark concept. Alter early and cleanly so she never has to guess.",
+    "cost": "Make her change course and it's a Two-Turns Penalty on you."
+  }
+},
+{
+  "id": "s17-row-hold",
+  "title": "You're the starboard boat — she's crossing",
+  "zone_tag": "beat", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 62, "y": 74, "heading": 315, "tack": "starboard"},
+    {"id": "A", "x": 44, "y": 80, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]]},
+  "q1": {"prompt": "You're on starboard. A, on port, is crossing ahead — it looks like she'll make it. What do you do?",
+    "options": [
+      {"id": "hold", "label": "Hold your course and speed"},
+      {"id": "hunt", "label": "Luff toward her to make it close"},
+      {"id": "bear", "label": "Bear away behind her to be safe"},
+      {"id": "hail", "label": "Hail 'Starboard!' and tack"}
+    ],
+    "correct": "hold"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": null, "rules": ["10", "14"],
+    "explanation": "You have right of way (Rule 10) — and the most useful thing a right-of-way boat can do is be predictable. Hold your course so she can judge the cross; if you changed course now, Rule 16.1 would put obligations on you. You only must act to avoid her when it's clear she isn't keeping clear (Rule 14).",
+    "cost": "Alter course into her mid-cross and the foul can flip to you under 16.1."
+  }
+},
+{
+  "id": "s18-ps-finish",
+  "title": "Port and starboard at the finish line",
+  "zone_tag": "beat", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "lines": [{"kind": "finish", "x1": 30, "y1": 36, "x2": 74, "y2": 30}],
+  "boats": [
+    {"id": "you", "x": 46, "y": 44, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 60, "y": 40, "heading": 315, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["you", "A"]]},
+  "q1": {"prompt": "You're on port, one length from the finish line. A converges on starboard, also finishing. Your bow will take the gun first. What do you do?",
+    "options": [
+      {"id": "duck", "label": "Duck or tack — the line changes nothing"},
+      {"id": "shoot", "label": "Shoot the line — first bow across wins"},
+      {"id": "hold", "label": "Hold — you're finished once your bow crosses"},
+      {"id": "hail", "label": "Hail 'finishing!' and cross"}
+    ],
+    "correct": "duck"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["10"],
+    "explanation": "You're racing until your hull clears the finishing line — getting your bow across doesn't switch the rules off. Rule 10 applies right through the gun: port keeps clear. Duck her, cross behind, and take your finish a second later.",
+    "cost": "Foul her here and it's turns, then you must cross the line again to finish."
+  }
+},
+{
+  "id": "s19-luffing-rights",
+  "title": "The leeward boat takes you up — legally",
+  "zone_tag": "beat", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 45, "y": 70, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 52, "y": 77, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]], "row_changing_course": {"boat": "A"}},
+  "q1": {"prompt": "A is overlapped to leeward — an overlap she did NOT get from clear astern. She starts luffing you, well above close-hauled. What do you do?",
+    "options": [
+      {"id": "respond", "label": "Keep responding — she can take you to head to wind"},
+      {"id": "stopat", "label": "Follow only up to close-hauled, then hold"},
+      {"id": "protest", "label": "Refuse and protest an illegal luff"},
+      {"id": "tackclear", "label": "Tack away if you can't hang on"}
+    ],
+    "correct": "respond"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["11", "16.1"],
+    "explanation": "Rule 17's proper-course cap only binds a boat whose leeward overlap began from clear astern — hers didn't, so she has full luffing rights up to head to wind. You must keep clear (Rule 11); her only constraint is giving you room to respond as she turns (Rule 16.1). Tacking away is legal too — but 'she can't do that' is wrong.",
+    "cost": "Refuse the luff and touch: penalty on you, not her."
+  }
+},
+{
+  "id": "s20-prestart-luff",
+  "title": "Pinned above the layline before the start",
+  "zone_tag": "start", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 45, "y": 70, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 52, "y": 77, "heading": 45, "tack": "port", "trail": [[48, 88], [50, 82]]}
+  ],
+  "facts": {"pairs": [["you", "A"]], "starting": {"before_start_signal": true},
+    "overlap_from_clear_astern": {"boat": "A", "other": "you", "within_two_lengths": true},
+    "row_changing_course": {"boat": "A"}},
+  "q1": {"prompt": "90 seconds to the gun. A rolled in from astern to leeward and is now luffing you head to wind, way past any sensible course. Legal?",
+    "options": [
+      {"id": "legal", "label": "Yes — before the gun there's no proper course"},
+      {"id": "illegal", "label": "No — she came from astern, Rule 17 caps her"},
+      {"id": "onlyslow", "label": "Only if she does it slowly"},
+      {"id": "neverhtw", "label": "She can never take you past close-hauled"}
+    ],
+    "correct": "legal"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["11", "16.1"],
+    "explanation": "Rule 17 limits a boat to her proper course — but no boat has a proper course before her starting signal, so before the gun the cap simply has nothing to bite on. She can park you head to wind as long as each course change gives you room to respond (Rule 16.1). At the gun, proper course switches on and she must come down to it.",
+    "cost": "Ignore her luff and make contact: penalty yours. Her failing to bear away after the gun: penalty hers."
+  }
+},
+{
+  "id": "s21-clear-ahead-free",
+  "title": "Faster boat closing from astern",
+  "zone_tag": "beat", "difficulty": 1, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 50, "y": 60, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 44, "y": 68, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]]},
+  "q1": {"prompt": "Upwind, A is directly astern and slowly climbing over you. What are your obligations?",
+    "options": [
+      {"id": "none", "label": "None yet — sail your race"},
+      {"id": "givelane", "label": "Give her a lane through"},
+      {"id": "notack", "label": "You may not tack while she's behind you"},
+      {"id": "mustdefend", "label": "You must luff to defend or lose your rights"}
+    ],
+    "correct": "none"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": null, "rules": ["12"],
+    "explanation": "Clear astern keeps clear (Rule 12) — you owe her nothing and can sail, tack, or defend as you like. Just remember: if you tack, Rule 13 makes YOU the keep-clear boat from head to wind until close-hauled, and if she overlaps you the picture changes. Rights are a snapshot, not a possession.",
+    "cost": "Nothing — unless you tack into her and can't finish it clear (turns on you under 13)."
+  }
+},
+{
+  "id": "s22-you-tacking",
+  "title": "Caught mid-tack",
+  "zone_tag": "beat", "difficulty": 1, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 56, "y": 52, "heading": 10, "tack": "starboard", "tacking": true, "trail": [[50, 60], [53, 56]]},
+    {"id": "A", "x": 64, "y": 58, "heading": 315, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["you", "A"]]},
+  "q1": {"prompt": "You're past head to wind, not yet close-hauled. A is close-hauled on starboard, coming in fast. What do you do?",
+    "options": [
+      {"id": "finish", "label": "Finish the tack fast and get clear"},
+      {"id": "rights", "label": "Hold — you're on starboard now too"},
+      {"id": "stall", "label": "Stall head to wind and make her go around"},
+      {"id": "hail", "label": "Hail for room to complete the tack"}
+    ],
+    "correct": "finish"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["13"],
+    "explanation": "From head to wind until you're on a close-hauled course, Rule 13 makes you the keep-clear boat — being 'on starboard' mid-turn doesn't help you. There's no room to hail for; complete the tack smartly and duck out of her line. Rights come back only when you're closehauled and clear.",
+    "cost": "If she has to alter while you're still turning: Two-Turns Penalty on you."
+  }
+},
+{
+  "id": "s23-ocs-return",
+  "title": "Coming back after being over early",
+  "zone_tag": "start", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "boats": [
+    {"id": "you", "x": 55, "y": 50, "heading": 170, "tack": "port", "trail": [[54, 38], [54, 44]]},
+    {"id": "A", "x": 48, "y": 62, "heading": 315, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["you", "A"]], "returning_to_start": {"boat": "you"}},
+  "q1": {"prompt": "You were over at the gun and are sailing back against the fleet. A is starting properly, close-hauled toward you. What do you do?",
+    "options": [
+      {"id": "thread", "label": "Keep clear of everyone — thread back through gaps"},
+      {"id": "starb", "label": "Get onto starboard first, then you have rights"},
+      {"id": "line", "label": "Boats still starting must give you room to return"},
+      {"id": "fast", "label": "Charge back the shortest way — you're exempt"}
+    ],
+    "correct": "thread"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["21.1"],
+    "explanation": "A boat sailing back toward the pre-start side of the line keeps clear of boats that aren't (Rule 21.1, 2025 numbering) — your tack is irrelevant until you're back and starting properly. Pick your way through the gaps like a pedestrian crossing a highway. Rights resume once you've returned to the pre-start side.",
+    "cost": "Force a starter to alter and you owe turns on top of the restart."
+  }
+},
+{
+  "id": "s24-backing-down",
+  "title": "Backing out of a hole on the line",
+  "zone_tag": "start", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "boats": [
+    {"id": "you", "x": 52, "y": 64, "heading": 315, "tack": "starboard"},
+    {"id": "A", "x": 46, "y": 68, "heading": 315, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["you", "A"]], "moving_astern": {"boat": "you"}},
+  "q1": {"prompt": "Parked on the line, you back your jib and start moving astern to reset your hole. A is behind-to-leeward, moving forward. What's your status?",
+    "options": [
+      {"id": "keepclear", "label": "You keep clear of everyone while moving astern"},
+      {"id": "leeward", "label": "You're still leeward/clear ahead — she keeps clear"},
+      {"id": "shout", "label": "Hail her to go around you"},
+      {"id": "normal", "label": "Normal rules — she's astern, she keeps clear"}
+    ],
+    "correct": "keepclear"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["21.3"],
+    "explanation": "A boat moving astern by backing a sail keeps clear of boats that aren't (Rule 21.3, 2025 numbering) — your usual clear-ahead or leeward rights are suspended while you're going backwards. Check your blind spot before you back down, the way you'd check a mirror. Rights return when you stop making sternway.",
+    "cost": "Drift back into her and the foul is yours, whatever your tack or position."
+  }
+},
+{
+  "id": "s25-row-must-act",
+  "title": "She's not going to make it",
+  "zone_tag": "beat", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 60, "y": 72, "heading": 315, "tack": "starboard"},
+    {"id": "A", "x": 42, "y": 76, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]]},
+  "q1": {"prompt": "You're on starboard. A, on port, is clearly NOT going to cross or duck — she hasn't seen you. Hails get no response. What do you do?",
+    "options": [
+      {"id": "avoid", "label": "Avoid her — bear away hard, protest after"},
+      {"id": "stand", "label": "Stand on — right of way means never yielding"},
+      {"id": "early", "label": "You should already have tacked away"},
+      {"id": "brace", "label": "Brace for contact — it's her fault anyway"}
+    ],
+    "correct": "avoid"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": null, "rules": ["10", "14"],
+    "explanation": "Right of way is not a licence to collide: once it's clear the other boat is not keeping clear, Rule 14 requires you to act. Until that moment you were right to hold (predictability helps her keep clear); now you bear away, avoid, and protest. Contact you could have avoided is your breach too — though without damage or injury, a right-of-way boat is exonerated (Rule 43.1(c)).",
+    "cost": "She owes turns either way. Hit her when you could have avoided it — with damage — and you're both in the room."
+  }
+},
+{
+  "id": "s26-forced-onto-mark",
+  "title": "Squeezed onto the mark",
+  "zone_tag": "leeward-mark", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 56, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 50, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 43, "y": 83, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "A", "overlapped": true, "inside": "you"}},
+  "q1": {"prompt": "Inside and entitled to mark-room, but A gave you barely half a boat and your quarter kissed the mark. Do you take a One-Turn Penalty?",
+    "options": [
+      {"id": "noturn", "label": "No — she denied you mark-room; protest her"},
+      {"id": "spin", "label": "Yes — you touched it, you spin"},
+      {"id": "both", "label": "Spin AND protest, to be safe"},
+      {"id": "retire", "label": "Retire — contact with a mark is terminal"}
+    ],
+    "correct": "noturn"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": "you", "rules": ["11", "18.2a", "43.1b", "31"],
+    "explanation": "Mark-room includes the space not to hit the mark. If you touched it because A failed to give you that space (Rule 18.2(a)), you're exonerated for breaking Rule 31 (Rule 43.1(b)) — no turn owed. Sail on and protest; the panel decides whether the squeeze or your own sloppy rounding put you on the mark.",
+    "cost": "If it was actually your own line that clipped it, the One-Turn was owed — judge yourself honestly."
+  }
+},
+{
+  "id": "s27-kite-collapse",
+  "title": "Your kite collapses in her shadow",
+  "zone_tag": "run", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 44, "y": 81, "heading": 170, "tack": "port", "trail": [[42, 68], [43, 74]]},
+    {"id": "A", "x": 47, "y": 86, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "overlap_from_clear_astern": {"boat": "you", "other": "A", "within_two_lengths": true}},
+  "q1": {"prompt": "You dove in to pass A to leeward, a length away. Her wind shadow collapses your spinnaker; alone, you'd luff up sharply to refill. May you?",
+    "options": [
+      {"id": "no", "label": "No — judge proper course as if she weren't there"},
+      {"id": "yes", "label": "Yes — a collapsed kite makes luffing your proper course"},
+      {"id": "briefly", "label": "Only briefly, then back down"},
+      {"id": "hail", "label": "Hail her to give you air"}
+    ],
+    "correct": "no"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": null, "rules": ["11", "17"],
+    "explanation": "You're leeward with right of way (Rule 11), but you overlapped from clear astern within two lengths, so Rule 17 caps you at your proper course — judged with A removed from the picture. Without her there'd be no wind shadow and no collapse, so luffing to refill isn't your proper course. That's the price of diving into someone's leeward side; there is no 'room to breathe' rule.",
+    "cost": "Luff above proper course and you break Rule 17 even if she never has to respond."
+  }
+},
+{
+  "id": "s28-seamanlike-room",
+  "title": "How much room is mark-room?",
+  "zone_tag": "leeward-mark", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 56, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 50, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 43, "y": 83, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "A", "overlapped": true, "inside": "you"}},
+  "q1": {"prompt": "You're inside at the zone but A, outside and leeward, has right of way. How wide may you swing the rounding?",
+    "options": [
+      {"id": "seaman", "label": "A seamanlike rounding only — no wide-and-tight"},
+      {"id": "tactical", "label": "Wide in, tight out — inside boat's privilege"},
+      {"id": "any", "label": "As wide as you like while rule 18 is on"},
+      {"id": "halfboat", "label": "Exactly half a boat-width, by rule"}
+    ],
+    "correct": "seaman"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": "you", "rules": ["11", "18.2a", "43.1b"],
+    "explanation": "As an inside KEEP-CLEAR boat you're entitled to mark-room only: space to sail to the mark and round it in a seamanlike way. The tactical wide-and-tight rounding belongs to an inside boat that also has right of way — that's not you. Swing wider than seamanlike and you're outside your protection (Rule 43.1(b)) and just a windward boat breaking Rule 11.",
+    "cost": "Overcook the entry and touch her: penalty yours, exoneration gone."
+  }
+},
+{
+  "id": "s29-tactical-rounding",
+  "title": "Inside AND right of way",
+  "zone_tag": "leeward-mark", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 44, "y": 103, "type": "leeward", "rounding": "starboard", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 46, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 50, "y": 82, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "you", "overlapped": true, "inside": "you"}},
+  "q1": {"prompt": "Leeward mark: you're inside AND leeward, overlapped at the zone, with A stuck outside to windward. How do you round?",
+    "options": [
+      {"id": "tactical", "label": "Wide in, tight out — the full tactical rounding"},
+      {"id": "seaman", "label": "Tight seamanlike arc — no more"},
+      {"id": "letgo", "label": "Let her drop in ahead — she was there first"},
+      {"id": "straight", "label": "Straight at the mark, hard turn at the last second"}
+    ],
+    "correct": "tactical"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": "you", "rules": ["11", "18.2a"],
+    "explanation": "You hold both cards: mark-room from the zone overlap (Rule 18.2(a)) and right of way as the leeward boat (Rule 11). An inside right-of-way boat may sail her proper course through the rounding — wide in, tight out — and A must keep clear the whole way. Just don't swing wider than your proper course needs.",
+    "cost": "None for rounding your proper course. Swing beyond it into her and you're the one explaining."
+  }
+},
+{
+  "id": "s30-182c-same-tack-later",
+  "title": "Opposite tacks into the zone, same tack at the mark",
+  "zone_tag": "windward-mark", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 25, "type": "windward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 58, "y": 38, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 54, "y": 34, "heading": 45, "tack": "port", "trail": [[60, 28], [57, 30]]}
+  ],
+  "facts": {"pairs": [["you", "A"]], "same_tack_after_opp_entry": {"inside": "A"}},
+  "q1": {"prompt": "You entered the zone on opposite tacks (rule 18 off). Now A has borne off around head-to-wind traffic and you're both on port, her inside. What now?",
+    "options": [
+      {"id": "give", "label": "Give her mark-room — 18.2(c) picks it up"},
+      {"id": "nothing", "label": "Nothing — rule 18 stayed off from zone entry"},
+      {"id": "row", "label": "You're leeward: she keeps clear, no room owed"},
+      {"id": "protest", "label": "Protest — she can't build rights inside the zone"}
+    ],
+    "correct": "give"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": "A", "rules": ["11", "18.2c", "43.1b"],
+    "explanation": "When boats reach the zone on opposite tacks on a beat, Rule 18.2(a) never engages — but the new Rule 18.2(c) covers exactly this: once 18.2(a) doesn't apply and the boats are overlapped, the outside boat gives the inside boat mark-room. You keep right of way as leeward (Rule 11); she gets the space to round, protected by Rule 43.1(b). The zone snapshot isn't the whole story when tacks change.",
+    "cost": "Squeeze her at the mark and the turns are yours despite your right of way."
+  }
+},
+{
+  "id": "s31-184-must-gybe",
+  "title": "You must gybe at the mark — says Rule 18.4",
+  "zone_tag": "leeward-mark", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 44, "y": 103, "type": "leeward", "rounding": "starboard", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 46, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 50, "y": 82, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "you", "overlapped": true, "inside": "you"},
+    "must_gybe_at_mark": {"boat": "you"}},
+  "q1": {"prompt": "Inside, leeward, right of way — and your proper course at this mark is a gybe. Can you carry A past the mark on your current gybe first?",
+    "options": [
+      {"id": "gybe", "label": "No — gybe at the mark; that's your limit"},
+      {"id": "carry", "label": "Yes — luffing rights include sailing past"},
+      {"id": "carrybrief", "label": "A little past is fine, then gybe"},
+      {"id": "ask", "label": "Only if she doesn't protest"}
+    ],
+    "correct": "gybe"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": "you", "rules": ["11", "18.2a", "18.4"],
+    "explanation": "Rule 18.4: an inside overlapped right-of-way boat whose proper course at the mark is to gybe may sail no farther from the mark than that course — the rounding is yours, the joyride isn't. Take your tactical rounding and put the gybe in where the course demands it. (At a gate mark this limit wouldn't apply.)",
+    "cost": "Sail past the mark holding her out and you break 18.4 — turns on you."
+  }
+},
+{
+  "id": "s32-gate-no-184",
+  "title": "Same move at a gate mark",
+  "zone_tag": "leeward-mark", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 44, "y": 103, "type": "leeward", "rounding": "starboard", "zone_radius": 21, "gate": true},
+  "boats": [
+    {"id": "you", "x": 46, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 50, "y": 82, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "you", "overlapped": true, "inside": "you"},
+    "must_gybe_at_mark": {"boat": "you"}},
+  "q1": {"prompt": "Same picture — but this is the left mark of a GATE. Inside, leeward, right of way; gybing here would be your proper course. Must you gybe?",
+    "options": [
+      {"id": "hold", "label": "No — 18.4 doesn't apply at a gate; you may hold"},
+      {"id": "mustgybe", "label": "Yes — same as any leeward mark"},
+      {"id": "otherside", "label": "You must round the other gate mark instead"},
+      {"id": "roomonly", "label": "You lose mark-room if you don't gybe"}
+    ],
+    "correct": "hold"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": "you", "rules": ["11", "18.2a"],
+    "explanation": "Rule 18.4 explicitly exempts gate marks — an inside right-of-way boat at a gate may sail past the near mark toward the other one, and A must keep clear the whole time (Rule 11). Your mark-room from the zone overlap stands regardless (Rule 18.2(a)). Choose your gate for the next leg, not for the boat next to you.",
+    "cost": "None — this one's free. A tangling with you here owes the turns."
+  }
+},
+{
+  "id": "s33-pin-past-mark",
+  "title": "She's sailing past the mark, pinning you",
+  "zone_tag": "windward-mark", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 58, "y": 42, "type": "windward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 42, "y": 58, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 38, "y": 54, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "you", "overlapped": true, "inside": "A"}},
+  "q1": {"prompt": "A, inside and entitled to mark-room, sails PAST the point where she'd turn for the mark, holding you out on port. Is that legal?",
+    "options": [
+      {"id": "legal", "label": "Yes — while she keeps clear of you; no rule makes her take her room"},
+      {"id": "illegal", "label": "No — she must round once she has room"},
+      {"id": "roomonly", "label": "Legal only inside the zone"},
+      {"id": "protest", "label": "No — sailing past the mark forfeits everything"}
+    ],
+    "correct": "legal"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": "A", "rules": ["11", "18.2a", "43.1b"],
+    "explanation": "No rule requires a boat to take her mark-room. But once A sails beyond the space she needs to round, she's no longer sailing WITHIN it — her exoneration stops, and as the windward boat she must keep clear of you (Rule 11). She can hold you out exactly as long as she keeps clear; the moment you have to respond, she's broken Rule 11 unprotected.",
+    "cost": "For her: keep clear or turns. For you: keep sailing — don't luff into her to force the issue."
+  }
+},
+{
+  "id": "s34-windward-mark-same-tack",
+  "title": "Inside windward boat at the windward mark",
+  "zone_tag": "windward-mark", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 58, "y": 42, "type": "windward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 38, "y": 54, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 42, "y": 58, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "A", "overlapped": true, "inside": "you"}},
+  "q1": {"prompt": "Two port-tack boats at the windward mark: you're inside but WINDWARD, overlapped when A reached the zone. Do you get room to round?",
+    "options": [
+      {"id": "yes", "label": "Yes — inside overlap at the zone earns mark-room"},
+      {"id": "no", "label": "No — windward boat never gets room"},
+      {"id": "onlyrow", "label": "Only right-of-way boats get mark-room"},
+      {"id": "tackaway", "label": "You must tack away and come back"}
+    ],
+    "correct": "yes"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": "you", "rules": ["11", "18.2a", "43.1b"],
+    "explanation": "Mark-room doesn't care who has right of way: overlapped inside at the zone means A owes you room to sail to and round the mark (Rule 18.2(a)), even though you must keep clear of her as windward boat (Rule 11). Sailing within that room, you're exonerated if keeping clear becomes impossible (Rule 43.1(b)). One warning: pass head to wind and rule 18 switches off entirely.",
+    "cost": "If she pinches you off the mark, the turns are hers; if you tack inside the zone, protection's gone."
+  }
+},
+{
+  "id": "s36-gun-ends-luff",
+  "title": "The gun fires mid-luff",
+  "zone_tag": "start", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "boats": [
+    {"id": "you", "x": 48, "y": 66, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 54, "y": 73, "heading": 45, "tack": "port", "trail": [[50, 84], [52, 78]]}
+  ],
+  "facts": {"pairs": [["you", "A"]], "starting": {"before_start_signal": false},
+    "overlap_from_clear_astern": {"boat": "A", "other": "you", "within_two_lengths": true}},
+  "q1": {"prompt": "A rolled in from astern before the start and luffed you high of the line. The gun just fired and she's still holding you up there. Now what?",
+    "options": [
+      {"id": "protest", "label": "Keep clear — but she must bear off to proper course now"},
+      {"id": "nothing", "label": "Nothing changes — she keeps her luffing rights"},
+      {"id": "breakoff", "label": "You may now bear away through her to start"},
+      {"id": "swap", "label": "Rights swap at the gun — she keeps clear now"}
+    ],
+    "correct": "protest"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["11", "17"],
+    "explanation": "At the starting signal every boat acquires a proper course — and because A's leeward overlap came from clear astern within two lengths, Rule 17 now caps her at hers (roughly close-hauled here). She's still right-of-way leeward (Rule 11), so keep clear while she comes down; if she keeps pinning you high, she's breaking Rule 17. Protest, don't barge through her.",
+    "cost": "Her holding you high after the gun: turns on her. You bearing away into her: turns on you."
+  }
+},
+{
+  "id": "s37-door-at-obstruction",
+  "title": "Closing the door at another boat's stern",
+  "zone_tag": "start", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "obstruction": {"kind": "row-boat", "x": 28, "y": 50, "heading": 315},
+  "boats": [
+    {"id": "you", "x": 42, "y": 62, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 39, "y": 58, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]]},
+  "q1": {"prompt": "You're leeward with A overlapped to windward. Ahead, a starboard-tack boat you'll both pass astern of. Can you luff up to shut A out of the gap behind its stern?",
+    "options": [
+      {"id": "no", "label": "No — give her room to pass the obstruction with you"},
+      {"id": "yes", "label": "Yes — leeward boat can close any door"},
+      {"id": "onlyhail", "label": "Only if you hail first"},
+      {"id": "rcvessel", "label": "Same as the committee boat — no room owed"}
+    ],
+    "correct": "no"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": null, "rules": ["11", "19.2b"],
+    "explanation": "A right-of-way boat racing is an obstruction to boats that must keep clear of her — and at an obstruction, Rule 19.2(b) makes the outside boat give the inside boat room to pass on the same side. The committee-boat exception (Section C preamble) applies only at a starting mark; another racer's stern is not that. You may choose which side to pass (Rule 19.2(a)), but once you're both going astern of her, A gets room.",
+    "cost": "Shut A out at the stern and it's your penalty — 19.2(b), not hers."
+  }
+},
+{
+  "id": "s38-hail-room-to-tack",
+  "title": "Running out of water at the shore",
+  "zone_tag": "beat", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "obstruction": {"kind": "shore", "x": 8, "y": 25, "w": 14, "h": 70},
+  "boats": [
+    {"id": "you", "x": 42, "y": 62, "heading": 45, "tack": "port"},
+    {"id": "A", "x": 39, "y": 58, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]], "hail_room_to_tack": {"boat": "you"}},
+  "q1": {"prompt": "Close-hauled toward a shoal, A overlapped tight to windward — you can't tack without hitting her. What's the move?",
+    "options": [
+      {"id": "hail", "label": "Hail 'Room to tack!' — then tack when she responds"},
+      {"id": "tackanyway", "label": "Tack anyway — safety overrides everything"},
+      {"id": "bear", "label": "Bear away below her stern and gybe out"},
+      {"id": "wait", "label": "Sail until she tacks first — she'll run out of water too"}
+    ],
+    "correct": "hail"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": null, "rules": ["11", "20"],
+    "explanation": "Rule 20: sailing close-hauled or above toward an obstruction you can't safely avoid without tacking, you hail for room to tack. A must respond — tack as soon as possible, or reply 'You tack' and give you room — and once she responds, you must actually tack. Hail early enough that she can respond in a seamanlike way; a hail at the last second helps no one.",
+    "cost": "Tack without a hail into her: turns on you. She ignores a proper hail: turns on her."
+  }
+},
+{
+  "id": "s39-respond-to-hail",
+  "title": "You're the boat being hailed",
+  "zone_tag": "beat", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "obstruction": {"kind": "shore", "x": 8, "y": 25, "w": 14, "h": 70},
+  "boats": [
+    {"id": "A", "x": 42, "y": 62, "heading": 45, "tack": "port"},
+    {"id": "you", "x": 39, "y": 58, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["A", "you"]], "hail_room_to_tack": {"boat": "A"}},
+  "q1": {"prompt": "You're windward of A near the shore. She hails 'Room to tack!' — you think she could actually squeeze on a bit longer. What do you do?",
+    "options": [
+      {"id": "respond", "label": "Respond anyway — tack ASAP or reply 'You tack'"},
+      {"id": "refuse", "label": "Refuse — she doesn't need it yet"},
+      {"id": "silent", "label": "Say nothing; she'll figure it out"},
+      {"id": "protestonly", "label": "Respond, then protest an early hail — wait, both?"}
+    ],
+    "correct": "respond"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
+  "answer": {
+    "row": "A", "mark_room": null, "rules": ["11", "20"],
+    "explanation": "You don't get to referee her hail on the water: once she hails for room to tack, Rule 20 requires you to respond — tack as soon as possible, or answer 'You tack' and keep clear while she does. If you think the hail broke Rule 20.1 (she wasn't near the obstruction, or wasn't close-hauled), respond first and protest after. Deafness is not a defence.",
+    "cost": "Ignore the hail and she runs out of options: penalty yours, and it's an ugly one near shore."
+  }
+},
+{
+  "id": "s40-tack-at-mark-exit",
+  "title": "She tacks right after rounding — in front of you",
+  "zone_tag": "leeward-mark", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 100, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "A", "x": 52, "y": 88, "heading": 10, "tack": "starboard", "tacking": true, "trail": [[54, 96], [53, 92]]},
+    {"id": "you", "x": 47, "y": 91, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["A", "you"]],
+    "passed_htw_in_zone": {"boat": "A", "from_tack": "port", "other_stbd_since_entry": false}},
+  "q1": {"prompt": "A rounds the leeward mark just ahead of you and immediately throws a tack, passing head to wind right on your bow. What's her status?",
+    "options": [
+      {"id": "keepclear", "label": "She keeps clear — mark protection died at head to wind"},
+      {"id": "stillroom", "label": "Still protected — she's inside the zone"},
+      {"id": "yourfault", "label": "You keep clear — she rounded ahead"},
+      {"id": "bothclear", "label": "Both keep clear equally mid-maneuver"}
+    ],
+    "correct": "keepclear"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": null, "rules": ["13", "18.2b"],
+    "explanation": "The moment she passed head to wind, two things happened: Rule 13 made her the keep-clear boat until she's close-hauled, and any mark-room entitlement switched off (Rule 18.2(b)) — zone or no zone. Her clean rounding a moment ago buys her nothing mid-tack. Hold your course and let her finish it clear, or protest if her stern swings at you.",
+    "cost": "If you must alter while she's between head to wind and close-hauled: turns on her."
+  }
+},
+{
+  "id": "s41-overlap-just-in-time",
+  "title": "Her bow nips in just before the zone",
+  "zone_tag": "leeward-mark", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 47, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 50, "y": 81, "heading": 170, "tack": "port", "trail": [[49, 68], [49, 74]]}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "you", "overlapped": true, "inside": "A"}},
+  "q1": {"prompt": "A charges in from astern and hooks an inside overlap a beat BEFORE you reach the zone — clearly, no argument. What do you owe her?",
+    "options": [
+      {"id": "room", "label": "Mark-room for the whole rounding"},
+      {"id": "nothing", "label": "Nothing — she has to be overlapped a length before"},
+      {"id": "rowonly", "label": "Right of way only, not room"},
+      {"id": "breaklater", "label": "Room only until the overlap breaks"}
+    ],
+    "correct": "room"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": "A", "rules": ["11", "18.2a", "43.1b"],
+    "explanation": "The snapshot cuts both ways: overlapped — even by inches — when the first boat reaches the zone means the outside boat gives mark-room thereafter (Rule 18.2(a)), and it persists even if the overlap later breaks. You're still leeward with right of way (Rule 11), so she can't take more than the rounding needs. In real doubt her claim would fail (18.2(e)) — but this one wasn't in doubt.",
+    "cost": "Deny her the inside and the turns are yours, right-of-way boat or not."
+  }
+},
+{
+  "id": "s42-starboard-outside",
+  "title": "You're the starboard boat — and the outside boat",
+  "zone_tag": "leeward-mark", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "you", "x": 44, "y": 84, "heading": 190, "tack": "starboard"},
+    {"id": "A", "x": 53, "y": 86, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "zone_entry": {"first": "A", "overlapped": true, "inside": "A"}},
+  "q1": {"prompt": "Running to the leeward mark on starboard, A overlapped inside you on PORT at the zone. Starboard beats port... so can you shut her out?",
+    "options": [
+      {"id": "give", "label": "No — give mark-room; your rights shape the exit, not the space"},
+      {"id": "shut", "label": "Yes — she's port, she keeps clear, end of story"},
+      {"id": "gybefirst", "label": "Only if she gybes onto starboard first"},
+      {"id": "protest", "label": "Shut her out and protest her tack... gybe... whatever"}
+    ],
+    "correct": "give"},
+  "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "you"},
+  "answer": {
+    "row": "you", "mark_room": "A", "rules": ["10", "18.2a", "43.1b"],
+    "explanation": "Downwind, opposite-tack boats can be overlapped — and the zone snapshot says she's inside: you owe her mark-room (Rule 18.2(a)) even though you hold right of way under Rule 10. Sailing within that room she's exonerated for not keeping clear of you (Rule 43.1(b)). Your starboard advantage isn't nothing — she gets a seamanlike rounding, not a tactical one, and you own the exit.",
+    "cost": "Squeeze her at the mark and YOU do the turns, starboard tack and all."
+  }
+}
+]

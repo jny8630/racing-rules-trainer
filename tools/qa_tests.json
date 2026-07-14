@@ -1,0 +1,178 @@
+[
+{
+  "id": "qa01-port-layline-no-room",
+  "title": "Q&A: P on port layline hits zone first — entitled to mark-room over S?",
+  "source": "Dave P: 'No. The boats are not considered overlapped because they are on opposite tacks sailing above 90 degrees... rule 18 does not apply to boats on opposite tacks on a beat to windward (18.1(a)(1)).'",
+  "zone_tag": "windward-mark", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 25, "type": "windward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "P", "x": 40, "y": 36, "heading": 45, "tack": "port"},
+    {"id": "S", "x": 60, "y": 30, "heading": 315, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["P", "S"]]},
+  "answer": {"row": "S", "mark_room": null, "rules": ["10", "18.1a"]}
+},
+{
+  "id": "qa02-opp-tacks-leeward-mark",
+  "title": "Q&A: two boats in the zone on opposite tacks at a leeward mark",
+  "source": "Dave P: 'when one of the two boats is in the zone, rule 18 requires the outside boat to give mark-room, even if she is the right-of-way boat. And the inside port-tack boat is entitled to exoneration if she is sailing within the mark-room she is entitled to.'",
+  "zone_tag": "leeward-mark", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 100, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "P", "x": 54, "y": 84, "heading": 170, "tack": "port"},
+    {"id": "S", "x": 45, "y": 82, "heading": 190, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["P", "S"]], "zone_entry": {"first": "P", "overlapped": true, "inside": "P"}},
+  "answer": {"row": "S", "mark_room": "P", "rules": ["10", "18.2a", "43.1b"]}
+},
+{
+  "id": "qa03-slide43-clear-ahead",
+  "title": "Q&A Slide 43: Green enters zone clear ahead of Blue",
+  "source": "Dave D: 'Green actually entered the zone first at position 2. At that time, Blue was clear astern of Green, which means Blue has to give Green mark-room during this rounding.'",
+  "zone_tag": "leeward-mark", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 100, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "G", "x": 48, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "B", "x": 45, "y": 76, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["G", "B"]], "zone_entry": {"first": "G", "overlapped": false}},
+  "answer": {"row": "G", "mark_room": "G", "rules": ["12", "18.2a"]}
+},
+{
+  "id": "qa04-leaves-zone-resets",
+  "title": "Q&A: entitled boat sails out of the zone — rights turn off",
+  "source": "Dave P: 'If a boat entitled to mark-room sails outside the zone, her right to mark-room turns off (rule 18.2(b)).' And: re-entering 'starts over'.",
+  "zone_tag": "leeward-mark", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 100, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "G", "x": 48, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "B", "x": 45, "y": 76, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["G", "B"]], "zone_entry": {"first": "G", "overlapped": false},
+    "left_zone_after_entry": {"boat": "G"}},
+  "answer": {"row": "G", "mark_room": null, "rules": ["12", "18.2a", "18.2b"]}
+},
+{
+  "id": "qa05-tack-around-leeward-mark",
+  "title": "Q&A: tacking around a leeward mark — 18 turns off at head to wind",
+  "source": "Dave P: 'If a boat tacks around a leeward mark, the moment she passes head to wind, rule 18 turns off, which means her exoneration under 43.1(b) goes away, and she will be penalized for breaking rule 13 if her stern makes contact.'",
+  "zone_tag": "leeward-mark", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 100, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "A", "x": 52, "y": 88, "heading": 10, "tack": "starboard", "tacking": true},
+    {"id": "B", "x": 47, "y": 91, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["A", "B"]],
+    "passed_htw_in_zone": {"boat": "A", "from_tack": "port", "other_stbd_since_entry": false}},
+  "answer": {"row": "B", "mark_room": null, "rules": ["13", "18.2b"]}
+},
+{
+  "id": "qa06-htw-outside-zone",
+  "title": "Q&A: P passes head to wind OUTSIDE the zone, completes tack gliding in",
+  "source": "Dave P: 'If she passes head to wind outside the zone, rule 18.3 doesn't apply. P has to complete her tack without fouling S under rule 13. Then she is entitled to mark-room under rule 18.2(a).'",
+  "zone_tag": "windward-mark", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 25, "type": "windward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "P", "x": 61, "y": 36, "heading": 315, "tack": "starboard"},
+    {"id": "S", "x": 67, "y": 41, "heading": 315, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["P", "S"]], "zone_entry": {"first": "P", "overlapped": false}},
+  "answer": {"row": "P", "mark_room": "P", "rules": ["12", "18.2a"]}
+},
+{
+  "id": "qa07-barging",
+  "title": "Q&A: no room or mark-room at the committee boat",
+  "source": "Dave D: 'Section C rules do not apply at a starting mark surrounded by navigable water... So a boat (e.g. W) can be barging... L does not have to give W room or mark-room to pass that mark/obstruction.' W breaks rule 11 if L must act (Case 146).",
+  "zone_tag": "start", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 72, "y": 58, "type": "start-boat", "rounding": "port", "zone_radius": 0},
+  "boats": [
+    {"id": "W", "x": 68, "y": 66, "heading": 315, "tack": "starboard"},
+    {"id": "L", "x": 61, "y": 68, "heading": 315, "tack": "starboard"}
+  ],
+  "facts": {"pairs": [["W", "L"]], "starting": {"approaching_to_start": true}},
+  "answer": {"row": "L", "mark_room": null, "rules": ["11", "SecC"]}
+},
+{
+  "id": "qa08-windward-overtake-no-17",
+  "title": "Q&A: overtaking boat goes WINDWARD — rule 17 does not apply",
+  "source": "Dave D: 'In your example, the overtaking boat is to windward, so rule 17 does not apply... As the leeward boat you could luff as high as head to wind, as long as you gave the windward boat room to keep clear.'",
+  "zone_tag": "run", "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 44, "y": 84, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 47, "y": 79, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "overlap_from_clear_astern": {"boat": "A", "other": "you", "within_two_lengths": true}},
+  "answer": {"row": "you", "mark_room": null, "rules": ["11"]}
+},
+{
+  "id": "qa09-17-two-length-cutoff",
+  "title": "Q&A: rule 17 stops applying beyond two lengths",
+  "source": "Dave P: 'If rule 17 applies and the leeward boat gets more than two of her lengths away from the windward boat, rule 17 stops applying, even though the boats are still overlapped.'",
+  "zone_tag": "run", "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "boats": [
+    {"id": "you", "x": 63, "y": 86, "heading": 170, "tack": "port"},
+    {"id": "A", "x": 38, "y": 84, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["you", "A"]],
+    "overlap_from_clear_astern": {"boat": "A", "other": "you", "within_two_lengths": true}},
+  "answer": {"row": "A", "mark_room": null, "rules": ["11"]}
+},
+{
+  "id": "qa10-doubt-presumption",
+  "title": "Q&A: reasonable doubt an overlap was gained in time",
+  "source": "Dave D: 'Rule 18.2(e) says if there is reasonable doubt that a boat obtained or broke an overlap in time, it shall be presumed that she did not.' Dave P: 'the boat astern will usually lose that argument.'",
+  "zone_tag": "leeward-mark", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 50, "y": 100, "type": "leeward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "A", "x": 46, "y": 88, "heading": 170, "tack": "port"},
+    {"id": "B", "x": 44, "y": 79.5, "heading": 170, "tack": "port"}
+  ],
+  "facts": {"pairs": [["A", "B"]],
+    "zone_entry": {"first": "A", "overlapped": false, "doubt": "gained"}},
+  "answer": {"row": "A", "mark_room": "A", "rules": ["12", "18.2a", "18.2e"]}
+},
+{
+  "id": "qa11-windward-mark-same-tack",
+  "title": "Q&A: two port-tack boats at the windward mark, W inside overlapped",
+  "source": "Dave P: 'yes, [L must give inside W room] until the windward boat passes head to wind. At that time, rule 18 turns off completely (18.1(a)(1), 18.2(b)).' Also: 'Do mark room rules apply at the WW mark? Yes, when the boats are on the same tack...'",
+  "zone_tag": "windward-mark", "wind_from": 0, "units_per_length": 7,
+  "mark": {"x": 58, "y": 42, "type": "windward", "rounding": "port", "zone_radius": 21},
+  "boats": [
+    {"id": "L", "x": 42, "y": 58, "heading": 45, "tack": "port"},
+    {"id": "W", "x": 38, "y": 54, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["L", "W"]], "zone_entry": {"first": "L", "overlapped": true, "inside": "W"}},
+  "answer": {"row": "L", "mark_room": "W", "rules": ["11", "18.2a", "43.1b"]}
+},
+{
+  "id": "qa12-hail-room-to-tack",
+  "title": "Q&A: hailing for room to tack at an obstruction",
+  "source": "Dave P: 'Rule 20.1 gives a boat the right to call for room to tack at obstructions... she has to be sailing close-hauled or above... the hailed boat has to tack as soon as possible or reply You tack.' A starboard-tack ROW boat can be the obstruction.",
+  "zone_tag": "beat", "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "obstruction": {"kind": "shore", "x": 15, "y": 30, "w": 12, "h": 60},
+  "boats": [
+    {"id": "L", "x": 42, "y": 62, "heading": 45, "tack": "port"},
+    {"id": "W", "x": 39, "y": 58, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["L", "W"]], "hail_room_to_tack": {"boat": "L"}},
+  "answer": {"row": "L", "mark_room": null, "rules": ["11", "20"]}
+},
+{
+  "id": "qa13-room-at-obstruction",
+  "title": "Q&A: outside boat gives room to pass an obstruction (racing boat)",
+  "source": "Dave P: 'If two overlapped boats are passing an obstruction (often a starboard-tack boat racing upwind), the outside boat is required to give the inside boat room to sail between the outside boat and the obstruction (rule 19.2(b)).'",
+  "zone_tag": "beat", "wind_from": 0, "units_per_length": 7,
+  "mark": null,
+  "obstruction": {"kind": "row-boat", "x": 30, "y": 40},
+  "boats": [
+    {"id": "L", "x": 42, "y": 62, "heading": 45, "tack": "port"},
+    {"id": "W", "x": 39, "y": 58, "heading": 45, "tack": "port"}
+  ],
+  "facts": {"pairs": [["L", "W"]]},
+  "answer": {"row": "L", "mark_room": null, "rules": ["11", "19.2b"]}
+}
+]
