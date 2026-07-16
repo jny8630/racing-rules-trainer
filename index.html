@@ -168,7 +168,8 @@ const RULE_LABEL = {
   "10":"Rule 10 — Port / Starboard", "11":"Rule 11 — Windward / Leeward",
   "12":"Rule 12 — Clear Astern", "13":"Rule 13 — While Tacking",
   "14":"Rule 14 — Avoiding Contact", "15":"Rule 15 — Acquiring Right of Way",
-  "16.1":"Rule 16.1 — Changing Course", "17":"Rule 17 — Proper Course",
+  "16.1":"Rule 16.1 — Changing Course", "16.2":"Rule 16.2 — Bearing Away on a Beat",
+  "17":"Rule 17 — Proper Course",
   "18.1a":"Rule 18.1 — When 18 Applies", "18.2a":"Rule 18.2(a) — Mark-Room",
   "18.2b":"Rule 18.2(b) — Mark-Room Ends", "18.2c":"Rule 18.2(c) — Mark-Room",
   "18.2e":"Rule 18.2(e) — Doubt", "18.3":"Rule 18.3 — Tacking in the Zone",
@@ -271,6 +272,7 @@ function sceneBox(sit){
   const add = (x,y) => { xs.push(x); ys.push(y); };
   for (const b of sit.boats){
     add(b.x-7, b.y-7); add(b.x+7, b.y+8.5);
+    if (b.ze){ add(b.ze[0]-7, b.ze[1]-7); add(b.ze[0]+7, b.ze[1]+8.5); }
     for (const t of (b.trail||[])) add(t[0], t[1]);
   }
   if (sit.mark){
@@ -362,6 +364,11 @@ function drawSituation(sit){
     } else {
       el("circle", {cx:m.x, cy:m.y, r:1.7, fill:"#ffb347", stroke:"#0a1826", "stroke-width":0.4}, svg);
       el("circle", {cx:m.x, cy:m.y, r:0.55, fill:"#0a1826"}, svg);
+      if (m.type === "offset"){
+        const ot = el("text", {x:m.x, y:m.y+3.5, "font-size":2.6*fs, fill:"#ffb347",
+          "text-anchor":"middle"}, svg);
+        ot.textContent = "OFFSET";
+      }
     }
   }
   // abeam line: only when overlap state matters (same-tack pair or downwind pair or zone facts)
@@ -377,6 +384,24 @@ function drawSituation(sit){
     const ab = sternAbeam(lead);
     el("line", {x1:ab.x1, y1:ab.y1, x2:ab.x2, y2:ab.y2, stroke:"#e8f0f7",
       "stroke-width":0.35, "stroke-dasharray":"1.4 1.2", opacity:0.55}, svg);
+  }
+  // zone-entry ghost hulls (under the real boats), plus one caption
+  const L = 7, W = 2.6;
+  const hullD = `M0 ${-L/2} C ${W/2} ${-L/6} ${W/2} ${L/3} ${W/2.6} ${L/2}
+       L ${-W/2.6} ${L/2} C ${-W/2} ${L/3} ${-W/2} ${-L/6} 0 ${-L/2} Z`;
+  const ghosts = sit.boats.filter(b => b.ze);
+  for (const b of ghosts){
+    const g = el("g", {transform:`translate(${b.ze[0]} ${b.ze[1]}) rotate(${b.heading})`,
+      opacity:0.55}, svg);
+    el("path", {d:hullD, fill:"none", stroke:TACK_COLOR[b.tack], "stroke-width":0.45,
+      "stroke-dasharray":"1 0.9"}, g);
+  }
+  if (ghosts.length){
+    const gx = ghosts.reduce((s,b)=>s+b.ze[0],0)/ghosts.length;
+    const gy = Math.min(...ghosts.map(b=>b.ze[1])) - 5.5; // above the ghosts, clear of boats/labels
+    const ct = el("text", {x:gx, y:gy, "font-size":2.7*fs, fill:"#8fa9bf",
+      "font-weight":"600", "text-anchor":"middle"}, svg);
+    ct.textContent = "at zone entry";
   }
   // trails + boats
   for (const b of sit.boats){

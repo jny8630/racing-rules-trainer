@@ -1,4 +1,4 @@
-const CACHE = "rrs-trainer-v1";
+const CACHE = "rrs-trainer-v2";
 const ASSETS = ["./", "./index.html", "./situations.js", "./manifest.webmanifest",
                 "./icon-192.png", "./icon-512.png"];
 

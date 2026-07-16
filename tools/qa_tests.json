@@ -155,8 +155,8 @@
   "mark": null,
   "obstruction": {"kind": "shore", "x": 15, "y": 30, "w": 12, "h": 60},
   "boats": [
-    {"id": "L", "x": 42, "y": 62, "heading": 45, "tack": "port"},
-    {"id": "W", "x": 39, "y": 58, "heading": 45, "tack": "port"}
+    {"id": "L", "x": 42, "y": 62, "heading": 315, "tack": "starboard"},
+    {"id": "W", "x": 39, "y": 58, "heading": 315, "tack": "starboard"}
   ],
   "facts": {"pairs": [["L", "W"]], "hail_room_to_tack": {"boat": "L"}},
   "answer": {"row": "L", "mark_room": null, "rules": ["11", "20"]}
@@ -167,7 +167,7 @@
   "source": "Dave P: 'If two overlapped boats are passing an obstruction (often a starboard-tack boat racing upwind), the outside boat is required to give the inside boat room to sail between the outside boat and the obstruction (rule 19.2(b)).'",
   "zone_tag": "beat", "wind_from": 0, "units_per_length": 7,
   "mark": null,
-  "obstruction": {"kind": "row-boat", "x": 30, "y": 40},
+  "obstruction": {"kind": "row-boat", "x": 52, "y": 46},
   "boats": [
     {"id": "L", "x": 42, "y": 62, "heading": 45, "tack": "port"},
     {"id": "W", "x": 39, "y": 58, "heading": 45, "tack": "port"}

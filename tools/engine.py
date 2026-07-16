@@ -206,8 +206,21 @@ def derive(situation):
         if j["boat"] == row and j.get("cause", "own_action") == "own_action":
             rules.add("15")
     if facts.get("row_changing_course"):
-        if facts["row_changing_course"]["boat"] == row:
+        rcc = facts["row_changing_course"]
+        if rcc["boat"] == row:
             rules.add("16.1")
+            # rule 16.2: on a beat, when a port-tack boat is keeping clear by
+            # sailing to pass to leeward (astern) of a starboard-tack boat,
+            # the starboard boat shall not bear away if the port boat must
+            # change course immediately to continue keeping clear
+            if (
+                rcc.get("direction") == "bear_away"
+                and ta != tb
+                and a.twa(wind) <= 90 and b.twa(wind) <= 90
+                and (row == a.id and ta == "starboard" or row == b.id and tb == "starboard")
+                and facts.get("give_way_boat_ducking")
+            ):
+                rules.add("16.2")
     ofa = facts.get("overlap_from_clear_astern")
     before_signal = bool((facts.get("starting") or {}).get("before_start_signal"))
     if ofa and ta == tb and ov and not before_signal:
@@ -216,11 +229,12 @@ def derive(situation):
         # rule 17 applies to the boat that came from clear astern into a
         # LEEWARD overlap within two of her hull lengths, while it persists
         lee = leeward_of_pair(a, b, wind)
+        # (2025 text: the former "overlap began while windward boat subject to
+        # rule 13" exception was deleted from rule 17)
         if (
             ofa["boat"] == lee.id
             and ofa.get("within_two_lengths", True)
             and hull_gap(a, b) <= 2 * L
-            and not ofa.get("began_while_windward_tacking", False)
         ):
             rules.add("17")
 
@@ -238,12 +252,18 @@ def derive(situation):
             beat = a.twa(wind) <= 90 and b.twa(wind) <= 90
             opp = ta != tb
             off_181a = opp and (beat or mark.get("type") == "windward")
-            if off_181a and not facts.get("passed_htw_in_zone") and not facts.get("same_tack_after_opp_entry"):
+            if facts.get("one_leaving_mark"):
+                # rule 18.1(a)(3): rule 18 does not apply between a boat
+                # approaching a mark and one leaving it
+                rules.add("18.1a")
+            elif off_181a and not facts.get("passed_htw_in_zone") and not facts.get("same_tack_after_opp_entry"):
                 rules.add("18.1a")
             else:
                 if facts.get("passed_htw_in_zone"):
                     p = facts["passed_htw_in_zone"]
-                    if p.get("from_tack") == "port" and p.get("other_stbd_since_entry"):
+                    if (p.get("from_tack") == "port" and p.get("other_stbd_since_entry")
+                        and mark.get("rounding", "port") == "port"):
+                    # 18.3 applies only in the zone of a mark to be left to port
                         rules.add("18.3")
                         # 18.3 gives the since-entry-starboard boat mark-room only
                         # if she is overlapped INSIDE the tacker. At a windward
@@ -297,12 +317,57 @@ def derive(situation):
     # --- obstructions ---
     obs = situation.get("obstruction")
     if obs and not facts.get("starting_mark_is_obstruction_off"):
+        # obstruction-direction check: a scenario whose text says the boats
+        # sail TOWARD an obstruction must place it in the FORWARD half-plane of
+        # both pair boats. Target point: (o.x,o.y) for a row-boat; for a shore,
+        # the nearest point of rectangle [o.x-o.w, o.x+4] x [o.y, o.y+o.h].
+        for bt in (a, b):
+            if obs.get("kind") == "shore":
+                ox0, ox1 = obs["x"] - obs.get("w", 0), obs["x"] + 4
+                oy0, oy1 = obs["y"], obs["y"] + obs.get("h", 0)
+                tx = min(max(bt.x, ox0), ox1)
+                ty = min(max(bt.y, oy0), oy1)
+            else:
+                tx, ty = obs["x"], obs["y"]
+            if bt.dir[0] * (tx - bt.x) + bt.dir[1] * (ty - bt.y) <= 0:
+                notes.append(f"OBSTRUCTION BEHIND {bt.id}")
         if facts.get("hail_room_to_tack"):
             rules.add("20")
         elif ov and ta == tb:
             rules.add("19.2b")
         if facts.get("row_choosing_side"):
             rules.add("19.2a")
+
+    # --- zone-entry ghost validation: if the diagram carries "at zone entry"
+    # ghost positions, they must be geometrically consistent with the declared
+    # zone-entry snapshot (this is the picture the user learns from) ---
+    ze = facts.get("zone_entry")
+    if ze and mark and all("ze" in bs for bs in situation["boats"]):
+        zone_r = mark.get("zone_radius", 3 * L)
+        ghosts = {}
+        for bs in situation["boats"]:
+            spec = dict(bs)
+            spec["x"], spec["y"] = bs["ze"][0], bs["ze"][1]
+            spec["heading"] = bs.get("ze_heading", bs["heading"])
+            ghosts[bs["id"]] = Boat(spec, L)
+        ga, gb = ghosts[pair[0]], ghosts[pair[1]]
+        g_ov = overlap_geometric(ga, gb) if overlap_applies(ga, gb, wind) else False
+        if g_ov != bool(ze.get("overlapped")):
+            notes.append(f"ZE GHOSTS: overlap at entry is {g_ov}, facts say {ze.get('overlapped')}")
+        first = ghosts.get(ze.get("first"))
+        if first:
+            dmin = min(math.hypot(p[0] - mark["x"], p[1] - mark["y"])
+                       for p in (first.bow, first.stern))
+            if dmin > zone_r + 2.0:
+                notes.append(f"ZE GHOSTS: first boat {ze['first']} not at/in the zone (d={dmin:.1f})")
+        if not ze.get("overlapped") and first:
+            other = gb if first is ga else ga
+            omin = min(math.hypot(p[0] - mark["x"], p[1] - mark["y"])
+                       for p in (other.bow, other.stern))
+            if omin <= zone_r:
+                notes.append("ZE GHOSTS: giver already in the zone though facts say not overlapped/first")
+            if not clear_astern(other, first):
+                notes.append("ZE GHOSTS: giver not clear astern of entitled boat at entry")
 
     return {
         "row": row,
