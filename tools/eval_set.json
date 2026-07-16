@@ -105,8 +105,8 @@
   "zone_tag": "leeward-mark", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
   "mark": {"x": 50, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
   "boats": [
-    {"id": "you", "x": 47, "y": 86, "heading": 170, "tack": "port"},
-    {"id": "A", "x": 44, "y": 81, "heading": 170, "tack": "port", "trail": [[42, 68], [43, 74]]}
+    {"id": "you", "x": 47, "y": 86, "heading": 170, "tack": "port", "ze": [45.8, 79.4]},
+    {"id": "A", "x": 44, "y": 81, "heading": 170, "tack": "port", "trail": [[42, 68], [43, 74]], "ze": [42.3, 71.4]}
   ],
   "facts": {"pairs": [["you", "A"]],
     "zone_entry": {"first": "you", "overlapped": false},
@@ -133,11 +133,11 @@
   "zone_tag": "leeward-mark", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
   "mark": {"x": 56, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
   "boats": [
-    {"id": "you", "x": 50, "y": 86, "heading": 170, "tack": "port"},
-    {"id": "A", "x": 43, "y": 83, "heading": 170, "tack": "port"}
+    {"id": "you", "x": 50, "y": 86, "heading": 170, "tack": "port", "ze": [49.0, 80.1]},
+    {"id": "A", "x": 43, "y": 83, "heading": 170, "tack": "port", "ze": [42.0, 77.1]}
   ],
   "facts": {"pairs": [["you", "A"]],
-    "zone_entry": {"first": "A", "overlapped": true, "inside": "you"},
+    "zone_entry": {"first": "you", "overlapped": true, "inside": "you"},
     "row_changing_course": {"boat": "A"}},
   "q1": {"prompt": "Overlapped at the zone, you inside, A outside to leeward. Mid-approach she starts luffing toward you. What do you do?",
     "options": [
@@ -242,10 +242,10 @@
   "mark": {"x": 50, "y": 25, "type": "windward", "rounding": "port", "zone_radius": 21},
   "boats": [
     {"id": "you", "x": 38, "y": 34, "heading": 45, "tack": "port"},
-    {"id": "A", "x": 62, "y": 32, "heading": 315, "tack": "starboard"}
+    {"id": "A", "x": 72, "y": 42, "heading": 315, "tack": "starboard"}
   ],
   "facts": {"pairs": [["you", "A"]]},
-  "q1": {"prompt": "You're on the port layline and entered the zone well before A, who's approaching on starboard. What do you do?",
+  "q1": {"prompt": "You're on the port layline and entered the zone well before A, who's still outside it, approaching on starboard. What do you do?",
     "options": [
       {"id": "duck", "label": "Duck her or tack — you have nothing"},
       {"id": "claim", "label": "Claim mark-room — you reached the zone first"},
@@ -266,8 +266,8 @@
   "zone_tag": "leeward-mark", "difficulty": 3, "wind_from": 0, "units_per_length": 7,
   "mark": {"x": 50, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
   "boats": [
-    {"id": "you", "x": 53, "y": 86, "heading": 170, "tack": "port"},
-    {"id": "A", "x": 44, "y": 84, "heading": 190, "tack": "starboard"}
+    {"id": "you", "x": 53, "y": 86, "heading": 170, "tack": "port", "ze": [51.8, 79.2]},
+    {"id": "A", "x": 44, "y": 84, "heading": 190, "tack": "starboard", "ze": [45.2, 77.2]}
   ],
   "facts": {"pairs": [["you", "A"]],
     "zone_entry": {"first": "you", "overlapped": true, "inside": "you"}},
@@ -292,8 +292,8 @@
   "zone_tag": "leeward-mark", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
   "mark": {"x": 54, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
   "boats": [
-    {"id": "you", "x": 47, "y": 86, "heading": 170, "tack": "port"},
-    {"id": "A", "x": 45, "y": 77, "heading": 170, "tack": "port"}
+    {"id": "you", "x": 47, "y": 86, "heading": 170, "tack": "port", "ze": [46.0, 80.4]},
+    {"id": "A", "x": 45, "y": 77, "heading": 170, "tack": "port", "ze": [43.5, 68.5]}
   ],
   "facts": {"pairs": [["you", "A"]],
     "zone_entry": {"first": "you", "overlapped": false, "doubt": "gained"}},
@@ -343,8 +343,8 @@
   "zone_tag": "leeward-mark", "difficulty": 2, "wind_from": 0, "units_per_length": 7,
   "mark": {"x": 54, "y": 103, "type": "leeward", "rounding": "port", "zone_radius": 21},
   "boats": [
-    {"id": "you", "x": 52, "y": 88, "heading": 170, "tack": "port"},
-    {"id": "A", "x": 48, "y": 79, "heading": 170, "tack": "port"}
+    {"id": "you", "x": 52, "y": 88, "heading": 170, "tack": "port", "ze": [50.5, 79.3]},
+    {"id": "A", "x": 48, "y": 79, "heading": 170, "tack": "port", "ze": [47.0, 73.2]}
   ],
   "facts": {"pairs": [["you", "A"]],
     "zone_entry": {"first": "you", "overlapped": true, "inside": "you"},
@@ -373,7 +373,9 @@
     {"id": "you", "x": 40, "y": 70, "heading": 90, "tack": "port", "trail": [[30, 78], [35, 74]]},
     {"id": "A", "x": 60, "y": 64, "heading": 280, "tack": "starboard", "trail": [[68, 55], [64, 59]]}
   ],
-  "facts": {"pairs": [["you", "A"]], "row_changing_course": {"boat": "A"}},
+  "facts": {"pairs": [["you", "A"]],
+    "row_changing_course": {"boat": "A", "direction": "bear_away"},
+    "give_way_boat_ducking": true},
   "q1": {"prompt": "You bear away to duck A's stern. She bears away too, keeping her bow on you. What do you do?",
     "options": [
       {"id": "deeper", "label": "Keep ducking as best you can — she owes you room"},
@@ -384,9 +386,9 @@
     "correct": "deeper"},
   "q2": {"type": "row", "prompt": "Who has right of way?", "correct": "A"},
   "answer": {
-    "row": "A", "mark_room": null, "rules": ["10", "16.1"],
-    "explanation": "She keeps right of way (Rule 10), and hunting is legal — but the moment she changes course she must give you room to keep clear (Rule 16.1). Keep reacting and keep clear; if her turn leaves you no way out, the foul is hers. Freezing up or cutting back across her bow just hands her the protest.",
-    "cost": "If you can't keep clear because of her turn: her penalty. If you stop reacting: yours."
+    "row": "A", "mark_room": null, "rules": ["10", "16.1", "16.2"],
+    "explanation": "She keeps right of way (Rule 10), but this hunt is illegal: on a beat, when you're keeping clear by passing to leeward of a starboard boat, Rule 16.2 forbids her bearing away if it forces you to change course immediately — and any course change she makes must give you room to keep clear (Rule 16.1). So keep ducking as best you can; if her turn leaves you scrambling, the foul is hers. Cutting back across her bow just hands her the protest.",
+    "cost": "Her bear-away forcing an immediate scramble: penalty hers (Rule 16.2). You stop reacting and hit her: yours."
   }
 }
 ]

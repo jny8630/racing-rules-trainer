@@ -328,7 +328,11 @@ window.SITUATIONS = [
     "x": 47,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     45.8,
+     79.4
+    ]
    },
    {
     "id": "A",
@@ -345,6 +349,10 @@ window.SITUATIONS = [
       43,
       74
      ]
+    ],
+    "ze": [
+     42.3,
+     71.4
     ]
    }
   ],
@@ -434,14 +442,22 @@ window.SITUATIONS = [
     "x": 50,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     49.0,
+     80.1
+    ]
    },
    {
     "id": "A",
     "x": 43,
     "y": 83,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     42.0,
+     77.1
+    ]
    }
   ],
   "facts": {
@@ -452,7 +468,7 @@ window.SITUATIONS = [
     ]
    ],
    "zone_entry": {
-    "first": "A",
+    "first": "you",
     "overlapped": true,
     "inside": "you"
    },
@@ -815,8 +831,8 @@ window.SITUATIONS = [
    },
    {
     "id": "A",
-    "x": 62,
-    "y": 32,
+    "x": 72,
+    "y": 42,
     "heading": 315,
     "tack": "starboard"
    }
@@ -830,7 +846,7 @@ window.SITUATIONS = [
    ]
   },
   "q1": {
-   "prompt": "You're on the port layline and entered the zone well before A, who's approaching on starboard. What do you do?",
+   "prompt": "You're on the port layline and entered the zone well before A, who's still outside it, approaching on starboard. What do you do?",
    "options": [
     {
      "id": "duck",
@@ -891,14 +907,22 @@ window.SITUATIONS = [
     "x": 53,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     51.8,
+     79.2
+    ]
    },
    {
     "id": "A",
     "x": 44,
     "y": 84,
     "heading": 190,
-    "tack": "starboard"
+    "tack": "starboard",
+    "ze": [
+     45.2,
+     77.2
+    ]
    }
   ],
   "facts": {
@@ -977,14 +1001,22 @@ window.SITUATIONS = [
     "x": 47,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     46.0,
+     80.4
+    ]
    },
    {
     "id": "A",
     "x": 45,
     "y": 77,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     43.5,
+     68.5
+    ]
    }
   ],
   "facts": {
@@ -1146,14 +1178,22 @@ window.SITUATIONS = [
     "x": 52,
     "y": 88,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     50.5,
+     79.3
+    ]
    },
    {
     "id": "A",
     "x": 48,
     "y": 79,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     47.0,
+     73.2
+    ]
    }
   ],
   "facts": {
@@ -1264,8 +1304,10 @@ window.SITUATIONS = [
     ]
    ],
    "row_changing_course": {
-    "boat": "A"
-   }
+    "boat": "A",
+    "direction": "bear_away"
+   },
+   "give_way_boat_ducking": true
   },
   "q1": {
    "prompt": "You bear away to duck A's stern. She bears away too, keeping her bow on you. What do you do?",
@@ -1299,10 +1341,11 @@ window.SITUATIONS = [
    "mark_room": null,
    "rules": [
     "10",
-    "16.1"
+    "16.1",
+    "16.2"
    ],
-   "explanation": "She keeps right of way (Rule 10), and hunting is legal \u2014 but the moment she changes course she must give you room to keep clear (Rule 16.1). Keep reacting and keep clear; if her turn leaves you no way out, the foul is hers. Freezing up or cutting back across her bow just hands her the protest.",
-   "cost": "If you can't keep clear because of her turn: her penalty. If you stop reacting: yours."
+   "explanation": "She keeps right of way (Rule 10), but this hunt is illegal: on a beat, when you're keeping clear by passing to leeward of a starboard boat, Rule 16.2 forbids her bearing away if it forces you to change course immediately \u2014 and any course change she makes must give you room to keep clear (Rule 16.1). So keep ducking as best you can; if her turn leaves you scrambling, the foul is hers. Cutting back across her bow just hands her the protest.",
+   "cost": "Her bear-away forcing an immediate scramble: penalty hers (Rule 16.2). You stop reacting and hit her: yours."
   },
   "verification": {
    "status": "verified"
@@ -2110,14 +2153,22 @@ window.SITUATIONS = [
     "x": 50,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     49.0,
+     80.1
+    ]
    },
    {
     "id": "A",
     "x": 43,
     "y": 83,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     42.0,
+     77.1
+    ]
    }
   ],
   "facts": {
@@ -2128,7 +2179,7 @@ window.SITUATIONS = [
     ]
    ],
    "zone_entry": {
-    "first": "A",
+    "first": "you",
     "overlapped": true,
     "inside": "you"
    }
@@ -2284,14 +2335,22 @@ window.SITUATIONS = [
     "x": 50,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     49.0,
+     80.1
+    ]
    },
    {
     "id": "A",
     "x": 43,
     "y": 83,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     42.0,
+     77.1
+    ]
    }
   ],
   "facts": {
@@ -2302,7 +2361,7 @@ window.SITUATIONS = [
     ]
    ],
    "zone_entry": {
-    "first": "A",
+    "first": "you",
     "overlapped": true,
     "inside": "you"
    }
@@ -2369,14 +2428,22 @@ window.SITUATIONS = [
     "x": 46,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     44.8,
+     79.1
+    ]
    },
    {
     "id": "A",
     "x": 50,
     "y": 82,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     48.8,
+     75.1
+    ]
    }
   ],
   "facts": {
@@ -2546,14 +2613,22 @@ window.SITUATIONS = [
     "x": 46,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     44.8,
+     79.1
+    ]
    },
    {
     "id": "A",
     "x": 50,
     "y": 82,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     48.8,
+     75.1
+    ]
    }
   ],
   "facts": {
@@ -2635,14 +2710,22 @@ window.SITUATIONS = [
     "x": 46,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     44.8,
+     79.1
+    ]
    },
    {
     "id": "A",
     "x": 50,
     "y": 82,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     48.8,
+     75.1
+    ]
    }
   ],
   "facts": {
@@ -2722,14 +2805,22 @@ window.SITUATIONS = [
     "x": 42,
     "y": 58,
     "heading": 45,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     41.0,
+     59.0
+    ]
    },
    {
     "id": "A",
     "x": 38,
     "y": 54,
     "heading": 45,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     37.0,
+     55.0
+    ]
    }
   ],
   "facts": {
@@ -2807,14 +2898,22 @@ window.SITUATIONS = [
     "x": 38,
     "y": 54,
     "heading": 45,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     37.0,
+     55.0
+    ]
    },
    {
     "id": "A",
     "x": 42,
     "y": 58,
     "heading": 45,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     41.0,
+     59.0
+    ]
    }
   ],
   "facts": {
@@ -2971,8 +3070,8 @@ window.SITUATIONS = [
   "units_per_length": 7,
   "obstruction": {
    "kind": "row-boat",
-   "x": 28,
-   "y": 50,
+   "x": 50,
+   "y": 46,
    "heading": 315
   },
   "boats": [
@@ -3059,15 +3158,15 @@ window.SITUATIONS = [
     "id": "you",
     "x": 42,
     "y": 62,
-    "heading": 45,
-    "tack": "port"
+    "heading": 315,
+    "tack": "starboard"
    },
    {
     "id": "A",
     "x": 39,
     "y": 58,
-    "heading": 45,
-    "tack": "port"
+    "heading": 315,
+    "tack": "starboard"
    }
   ],
   "facts": {
@@ -3141,15 +3240,15 @@ window.SITUATIONS = [
     "id": "A",
     "x": 42,
     "y": 62,
-    "heading": 45,
-    "tack": "port"
+    "heading": 315,
+    "tack": "starboard"
    },
    {
     "id": "you",
     "x": 39,
     "y": 58,
-    "heading": 45,
-    "tack": "port"
+    "heading": 315,
+    "tack": "starboard"
    }
   ],
   "facts": {
@@ -3319,7 +3418,11 @@ window.SITUATIONS = [
     "x": 47,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     45.8,
+     79.4
+    ]
    },
    {
     "id": "A",
@@ -3336,6 +3439,10 @@ window.SITUATIONS = [
       49,
       74
      ]
+    ],
+    "ze": [
+     48.8,
+     74.4
     ]
    }
   ],
@@ -3414,14 +3521,22 @@ window.SITUATIONS = [
     "x": 44,
     "y": 84,
     "heading": 190,
-    "tack": "starboard"
+    "tack": "starboard",
+    "ze": [
+     45.2,
+     77.2
+    ]
    },
    {
     "id": "A",
     "x": 53,
     "y": 86,
     "heading": 170,
-    "tack": "port"
+    "tack": "port",
+    "ze": [
+     51.8,
+     79.2
+    ]
    }
   ],
   "facts": {
@@ -3474,6 +3589,277 @@ window.SITUATIONS = [
    ],
    "explanation": "Downwind, opposite-tack boats can be overlapped \u2014 and the zone snapshot says she's inside: you owe her mark-room (Rule 18.2(a)) even though you hold right of way under Rule 10. Sailing within that room she's exonerated for not keeping clear of you (Rule 43.1(b)). Your starboard advantage isn't nothing \u2014 she gets a seamanlike rounding, not a tactical one, and you own the exit.",
    "cost": "Squeeze her at the mark and YOU do the turns, starboard tack and all."
+  },
+  "verification": {
+   "status": "verified"
+  }
+ },
+ {
+  "id": "s43-offset-fresh-zone",
+  "title": "The offset mark is its own zone",
+  "zone_tag": "offset-mark",
+  "difficulty": 3,
+  "wind_from": 0,
+  "units_per_length": 7,
+  "mark": {
+   "x": 30,
+   "y": 40,
+   "type": "offset",
+   "rounding": "port",
+   "zone_radius": 21
+  },
+  "boats": [
+   {
+    "id": "you",
+    "x": 54,
+    "y": 37,
+    "heading": 265,
+    "tack": "starboard",
+    "ze": [
+     55.6,
+     36.9
+    ]
+   },
+   {
+    "id": "A",
+    "x": 52,
+    "y": 44,
+    "heading": 265,
+    "tack": "starboard",
+    "ze": [
+     53.6,
+     43.9
+    ]
+   }
+  ],
+  "facts": {
+   "pairs": [
+    [
+     "you",
+     "A"
+    ]
+   ],
+   "zone_entry": {
+    "first": "A",
+    "overlapped": true,
+    "inside": "A"
+   }
+  },
+  "q1": {
+   "prompt": "You rounded the windward mark clean and you're on the short offset leg. A is overlapped inside and to leeward of you. Do your windward-mark rights carry over?",
+   "options": [
+    {
+     "id": "give",
+     "label": "Give her mark-room \u2014 the offset is a fresh zone"
+    },
+    {
+     "id": "carry",
+     "label": "Hold \u2014 your windward-mark rights carry over"
+    },
+    {
+     "id": "nozone",
+     "label": "Ignore it \u2014 no zones between marks"
+    },
+    {
+     "id": "ahead",
+     "label": "She keeps clear \u2014 you rounded ahead"
+    }
+   ],
+   "correct": "give"
+  },
+  "q2": {
+   "type": "row",
+   "prompt": "Who has right of way?",
+   "correct": "A"
+  },
+  "answer": {
+   "row": "A",
+   "mark_room": "A",
+   "rules": [
+    "11",
+    "18.2a"
+   ],
+   "explanation": "You rounded the windward mark with mark-room given, so rule 18 switched off between you two (18.1(b)). The offset is a separate mark with its own zone and a fresh 18.2(a) snapshot. At that snapshot A is overlapped inside and to leeward, so she gets mark-room and holds right of way (Rule 11). Give her room at the offset.",
+   "cost": "Squeeze her at the offset and the turns are yours."
+  },
+  "verification": {
+   "status": "verified"
+  }
+ },
+ {
+  "id": "s44-approaching-vs-leaving",
+  "title": "She's leaving the mark you're approaching",
+  "zone_tag": "leeward-mark",
+  "difficulty": 3,
+  "wind_from": 0,
+  "units_per_length": 7,
+  "mark": {
+   "x": 50,
+   "y": 96,
+   "type": "leeward",
+   "rounding": "port",
+   "zone_radius": 21
+  },
+  "boats": [
+   {
+    "id": "you",
+    "x": 46,
+    "y": 78,
+    "heading": 170,
+    "tack": "port"
+   },
+   {
+    "id": "A",
+    "x": 55,
+    "y": 88,
+    "heading": 315,
+    "tack": "starboard",
+    "trail": [
+     [
+      51,
+      95
+     ],
+     [
+      53,
+      92
+     ]
+    ]
+   }
+  ],
+  "facts": {
+   "pairs": [
+    [
+     "you",
+     "A"
+    ]
+   ],
+   "one_leaving_mark": {
+    "boat": "A"
+   }
+  },
+  "q1": {
+   "prompt": "You're running into the leeward-mark zone. A has already rounded and is beating back out on starboard, crossing your bow. What do you do?",
+   "options": [
+    {
+     "id": "alter",
+     "label": "Alter early \u2014 bear away or gybe to pass clear"
+    },
+    {
+     "id": "claim",
+     "label": "Claim mark-room \u2014 you're in the zone"
+    },
+    {
+     "id": "leaving",
+     "label": "Hold \u2014 leaving boats keep clear of rounding boats"
+    },
+    {
+     "id": "hail",
+     "label": "Hail her to tack away"
+    }
+   ],
+   "correct": "alter"
+  },
+  "q2": {
+   "type": "row",
+   "prompt": "Who has right of way?",
+   "correct": "A"
+  },
+  "answer": {
+   "row": "A",
+   "mark_room": null,
+   "rules": [
+    "10",
+    "18.1a"
+   ],
+   "explanation": "You're running into the leeward-mark zone; A has rounded and is beating out on starboard across your bow. New for 2025, rule 18.1(a)(3): rule 18 doesn't apply between a boat approaching a mark and one leaving it. Nobody owes mark-room here \u2014 it's plain Rule 10, and you're on port, so keep clear. Alter early to pass clear behind her.",
+   "cost": "Force her to alter and the turns are yours."
+  },
+  "verification": {
+   "status": "verified"
+  }
+ },
+ {
+  "id": "s45-gybe-gains-rights",
+  "title": "No such thing as 'while gybing'",
+  "zone_tag": "run",
+  "difficulty": 2,
+  "wind_from": 0,
+  "units_per_length": 7,
+  "mark": null,
+  "boats": [
+   {
+    "id": "you",
+    "x": 50,
+    "y": 80,
+    "heading": 190,
+    "tack": "starboard"
+   },
+   {
+    "id": "A",
+    "x": 56,
+    "y": 82,
+    "heading": 190,
+    "tack": "starboard",
+    "trail": [
+     [
+      62,
+      72
+     ],
+     [
+      59,
+      77
+     ]
+    ]
+   }
+  ],
+  "facts": {
+   "pairs": [
+    [
+     "you",
+     "A"
+    ]
+   ],
+   "just_acquired_row": {
+    "boat": "A",
+    "cause": "own_action"
+   }
+  },
+  "q1": {
+   "prompt": "A gybes onto starboard right under your lee bow. Mid-gybe she had to keep clear \u2014 now she's settled and calling leeward. What do you do?",
+   "options": [
+    {
+     "id": "respond",
+     "label": "Respond and keep clear \u2014 she owes you room at first"
+    },
+    {
+     "id": "hold",
+     "label": "Hold rights until she settles from her gybe"
+    },
+    {
+     "id": "protest",
+     "label": "Protest \u2014 gybing that close is illegal"
+    },
+    {
+     "id": "luff",
+     "label": "Luff hard immediately"
+    }
+   ],
+   "correct": "respond"
+  },
+  "q2": {
+   "type": "row",
+   "prompt": "Who has right of way?",
+   "correct": "A"
+  },
+  "answer": {
+   "row": "A",
+   "mark_room": null,
+   "rules": [
+    "11",
+    "15"
+   ],
+   "explanation": "A gybed onto starboard tight under your lee bow. Rule 13 covers only tacking past head to wind \u2014 there's no keep-clear-while-gybing rule, so the instant her gybe finished she was the leeward right-of-way boat (Rule 11). But she took right of way by her own action, so Rule 15 makes her give you room to keep clear at first. Hold briefly, then respond and keep clear.",
+   "cost": "Gybe too close for you to respond and the turns are hers; sit on her after your room runs out and they're yours."
   },
   "verification": {
    "status": "verified"

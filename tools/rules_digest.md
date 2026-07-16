@@ -1,7 +1,9 @@
 # 2025–2028 RRS — Engine Digest (Part 2 scope)
 
 Sources: Dave Dellenbaugh / Dave Perry "New 2025-2028 Rules Webinar" Q&A (Nov/Dec 2024),
-Henk Plaatje 2025-2028 Rules Chart poster. Rule numbers follow the 2025–2028 edition
+Henk Plaatje 2025-2028 Rules Chart poster,
+2025-2028-RRS-with-Changes-and-Corrections.docx (word-by-word verification).
+Rule numbers follow the 2025–2028 edition
 (note: exoneration is now rule 43.1, not 21 as in 2021–2024; old rule 22 is now rule 21).
 
 ## Definitions the engine uses
@@ -13,14 +15,14 @@ Henk Plaatje 2025-2028 Rules Chart poster. Rule numbers follow the 2025–2028 e
 - **Clear astern / clear ahead / overlap**: B is clear astern of A when B's hull and
   equipment in normal position are behind a line abeam from the aftermost point of A's
   hull and equipment. They overlap when neither is clear astern, or when a boat between
-  them overlaps both. These terms apply to boats on opposite tacks **only** when both
-  are sailing more than 90° from the true wind (i.e. downwind). (Q&A: Dave P, leeward
-  mark opposite-tack questions.)
+  them overlaps both. These terms always apply to boats on the same tack. They apply
+  to boats on opposite tacks only when rule 18 applies between them or when both boats
+  are sailing more than ninety degrees from the true wind.
 - **Zone**: the area within three hull lengths of the boat nearer the mark. A boat is
   in the zone when any part of her **hull** is in it. Between two boats there is only
   one zone — sized by the boat nearer the mark. (Q&A: multiple.)
-- **Mark-room**: room for a boat to sail **to** the mark (to a position close to it, in
-  a seamanlike way), room to **round or pass** it as necessary to sail the course, and
+- **Mark-room**: (a) room to sail to the mark when her proper course is to sail close
+  to it, (b) room to **round or pass** it as necessary to sail the course, and
   room to **leave it astern**. An inside keep-clear boat gets only a seamanlike
   rounding — no tactical "wide and tight." An inside right-of-way boat may round
   tactically (her limits come from 18.4 if she must gybe). (Q&A: Dave P, Case 75/118.)
@@ -57,11 +59,16 @@ Henk Plaatje 2025-2028 Rules Chart poster. Rule numbers follow the 2025–2028 e
 - **16.1 Changing course**: a right-of-way boat that changes course shall give the
   other boat room to keep clear. Applies whenever the ROW boat changes course (luffing,
   hunting), not when she holds a steady course.
+- **16.2**: In addition, on a beat to windward when a port-tack boat is keeping clear
+  by sailing to pass to leeward of a starboard-tack boat, the starboard-tack boat shall
+  not bear away if as a result the port-tack boat must change course immediately to
+  continue keeping clear.
 - **17 Same tack; proper course**: if a boat clear astern becomes overlapped within two
   of her hull lengths to **leeward** of a boat on the same tack, she shall not sail
   above her proper course while they remain overlapped within that distance, unless in
-  doing so she promptly sails astern of the other boat. Does not apply if the overlap
-  begins while the windward boat is subject to rule 13. Turns off if the boats separate
+  doing so she promptly sails astern of the other boat. (2025 change: the former last
+  sentence about overlaps beginning while the windward boat was tacking was deleted.)
+  Turns off if the boats separate
   beyond two lengths (and does not re-engage on re-convergence while continuously
   overlapped — Q&A: Dave P). A leeward boat whose overlap was NOT gained from clear
   astern has no proper-course limit ("luffing rights") — she may sail up to head to
@@ -77,30 +84,37 @@ windward boat that squeezes in breaks rule 11 if the leeward boat must act.
 - **18.1 When rule 18 applies**: between boats required to leave a mark on the same
   side when at least one is in the zone. It does **not** apply (a)(1) between boats on
   opposite tacks on a beat to windward, (a)(2) between boats on opposite tacks when the
-  proper course at the mark for one but not both is to tack, (b) once the boat entitled
-  to mark-room has been given it (mark left astern). Boats on opposite tacks sailing
+  proper course at the mark for one but not both is to tack, (a)(3) between a boat
+  approaching a mark and one leaving it (NEW 2025), (a)(4) if the mark is a continuing
+  obstruction (rule 19 applies). 18.1(b): rule 18 no longer applies between boats when
+  mark-room has been given. Boats on opposite tacks sailing
   downwind CAN be overlapped and rule 18 applies between them at a leeward mark.
-- **18.2(a)**: if boats are overlapped when the first of them reaches the zone, the
-  boat outside **at that moment** shall **thereafter** give the inside boat mark-room.
-  If a boat is clear ahead when she reaches the zone, the boat clear astern at that
-  moment shall thereafter give her mark-room. → The state at zone entry governs;
+- **18.2(a)**: when the first of two boats reaches the zone: (1) if they are
+  overlapped, the outside boat at that moment shall give the inside boat mark-room;
+  (2) if they are not overlapped, the boat that has not reached the zone at that moment
+  shall give the other boat mark-room. The giver shall continue to do so for as long as
+  this rule applies, even if later an overlap is broken or a new overlap begins.
+  → The state at zone entry governs;
   overlaps gained or broken later inside the zone do not change the entitlement.
 - **18.2(b)**: rule 18.2(a) no longer applies if the boat entitled to mark-room passes
   head to wind or leaves the zone. (Re-entering starts everything over. Q&A: Dave P.)
 - **18.2(c)**: when 18.2(a) does not apply and boats are overlapped, the outside boat
   gives the inside boat mark-room (e.g. boats that entered the zone on opposite tacks
   on a beat, then end up on the same tack).
-- **18.2(d)**: 18.2(a)/(c) don't apply if the outside boat has been physically unable
-  to give mark-room from the time the overlap began (rare).
+- **18.2(d)**: if a boat obtained an inside overlap from clear astern or by tacking to
+  windward of the other boat and, from the time the overlap began, the outside boat has
+  been unable to give mark-room, rules 18.2(a) and 18.2(c) do not apply between them.
 - **18.2(e)**: if there is reasonable doubt that a boat obtained or broke an overlap in
   time, presume she did not.
-- **18.3 Passing head to wind in the zone** (port → starboard): if a boat in the zone
-  passes head to wind from port to starboard and is then fetching the mark, she shall
-  not cause a boat that has been on starboard tack since entering the zone to sail
-  above close-hauled to avoid contact, and she shall give mark-room if that boat
-  becomes overlapped inside her. If she passed head to wind **outside** the zone, 18.3
-  does not apply — she completes her tack under rule 13, then normal 18.2 applies.
-  (Q&A: Dave P, explicit.)
+- **18.3 Tacking in the zone** (exact 2025 text): if a boat passes head to wind from
+  port to starboard tack in the zone of a mark to be left to port, rule 18.2 does not
+  apply between her and another boat on starboard tack that is **fetching** the mark.
+  If the other boat has been on starboard tack since entering the zone, the boat that
+  passed head to wind (a) shall not cause the other boat to sail above close-hauled to
+  avoid contact, and (b) shall give mark-room if the other boat becomes overlapped
+  inside her. (Note: "fetching" describes the OTHER boat, not the tacker.) If she
+  passed head to wind **outside** the zone, 18.3 does not apply — she completes her
+  tack under rule 13, then normal 18.2 applies.
 - **18.4 Gybing**: at a mark (not a gate), when an inside overlapped right-of-way boat
   must gybe to sail her proper course, until she gybes she shall sail no farther from
   the mark than needed to sail that course.
@@ -117,13 +131,17 @@ windward boat that squeezes in breaks rule 11 if the leeward boat must act.
 - **20 Room to tack at an obstruction**: a boat sailing close-hauled or above may hail
   for room to tack when she must make a substantial course change to avoid an
   obstruction safely and cannot tack without colliding with the hailed boat. Hailed
-  boat responds by tacking ASAP or replying "You tack" (then the hailer tacks ASAP and
-  the hailed boat gives room). The hailer must tack once the response comes. A
-  starboard-tack ROW boat can be the obstruction that justifies the hail between two
-  port-tack boats.
+  boat responds by tacking ASAP or immediately replying "You tack" (then the hailer
+  tacks ASAP and the hailed boat gives room). The hailer must tack once the response
+  comes. 20.2(b): the hailed boat shall respond **even if the hail breaks 20.1** —
+  respond first, protest after. 20.2(e): from the hail until the hailer has tacked and
+  avoided the hailed boat, rule 18.2 does not apply between them. A starboard-tack ROW
+  boat can be the obstruction that justifies the hail between two port-tack boats.
 
 ## Section D & related
 
+- **Section D preamble**: when rule 21 or 22 applies between two boats, Section A
+  rules do not.
 - **21 (2025 numbering; old 22)**: 21.1 a boat sailing toward the pre-start side of the
   line (returning after the signal / OCS) keeps clear of boats not doing so; 21.2 a
   boat taking a penalty keeps clear; 21.3 a boat moving astern (backing a sail) keeps
@@ -135,8 +153,10 @@ windward boat that squeezes in breaks rule 11 if the leeward boat must act.
   Section A, 15, 16, or 31 while sailing within the room or mark-room to which she is
   entitled, (c) a ROW/entitled boat breaks 14 with no damage or injury.
 - **44 Penalties**: Two-Turns Penalty for breaking a Part 2 rule while racing; One-Turn
-  for touching a mark. Get well clear ASAP, then turn. Retire if the breach caused
-  serious damage/injury or a significant advantage despite turns.
+  for touching a mark. 44.1(a): a boat that may have broken a Part 2 rule and rule 31
+  in the same incident need not take the penalty for rule 31. Get well clear ASAP,
+  then turn. Retire if the breach caused serious damage/injury or a significant
+  advantage despite turns (44.1(b)).
 
 ## Engine-relevant interactions (from the Q&A)
 
